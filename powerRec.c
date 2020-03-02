@@ -4,7 +4,10 @@ int powRec(int x,int y)
 {
     if(y==0)
         return 1;
-    return powRec(x,y-1)*x;
+    if(y%2==0)
+        return powRec(x*x,y/1);
+    else
+        return x*powRec(x*x,(y-1)/2);
 }
 int main()
 {
