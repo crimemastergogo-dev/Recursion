@@ -16,8 +16,19 @@ double taylorSer(int x,int n)
 
 }
 
+
+double taylorSerHomerRule(int x,int n)
+{
+    static double result = 1;
+    if (n == 0)
+        return result;
+    result = 1+x*result/n;
+    return taylorSerHomerRule(x,n-1);
+}
+
 int main ()
 {
-    printf("Taylor's series via slow approach %f",taylorSer(1,10));
+    printf("Taylor's series via slow approach %1f\n",taylorSer(1,10));
+    printf("Taylor's series via Homer's rule %1f\n",taylorSerHomerRule(1,10));
     return 0;
 }
